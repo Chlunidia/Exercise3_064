@@ -19,6 +19,10 @@ namespace Exercise_Linked_List_A
         {
             LAST = null;
         }
+        public void InsertNode()
+        {
+
+        }
         public bool Search(int rollNo, ref Node previous, ref Node current) /*searches for the specified node*/
         {
             for (previous = current = LAST.next; current != LAST; previous = current, current = current.next)
