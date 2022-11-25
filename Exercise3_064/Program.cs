@@ -23,6 +23,44 @@ namespace Exercise_Linked_List_A
         {
             int studentNo;
             string studentName;
+            Console.Write("\nEnter the roll number of the student : ");
+            studentNo = Convert.ToInt32(Console.ReadLine());
+            Console.Write("\nEnter the name of the student : ");
+            studentName = Console.ReadLine();
+            Node newNode = new Node();
+            newNode.rollNumber = studentNo;
+            newNode.name = studentName;
+            if (listEmpty())
+            {
+                newNode.next = newNode;
+                LAST = newNode;
+            }
+            else if (studentNo < LAST.next.rollNumber)
+            {
+                newNode.next = LAST.next;
+                LAST.next = newNode;
+            }
+            else if (studentNo > LAST.next.rollNumber)
+            {
+                newNode.next = LAST.next;
+                LAST.next = newNode;
+                LAST = newNode;
+            }
+            else
+            {
+                Node curr, prev;
+                curr = prev = LAST.next;
+                int i = 0;
+                while (i < studentNo - 1)
+                {
+                    prev = curr;
+                    curr = curr.next;
+                    i++;
+                }
+                newNode.next = curr;
+                prev.next = newNode;
+            }
+
         }
         public bool Search(int rollNo, ref Node previous, ref Node current) /*searches for the specified node*/
         {
