@@ -21,7 +21,8 @@ namespace Exercise_Linked_List_A
         }
         public void InsertNode()
         {
-
+            int studentNo;
+            string studentName;
         }
         public bool Search(int rollNo, ref Node previous, ref Node current) /*searches for the specified node*/
         {
