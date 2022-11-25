@@ -7,7 +7,7 @@ namespace Exercise_Linked_List_A
 {
     class Node
     {
-        /*creates Nodes for the circular nexted list*/
+        /* Creates Nodes for the circular nexted list */
         public int rollNumber;
         public string name;
         public Node next;
@@ -19,33 +19,41 @@ namespace Exercise_Linked_List_A
         {
             LAST = null;
         }
+        // Add new node
         public void InsertNode()
         {
+            // Create variable studentNo and studentName
             int studentNo;
             string studentName;
             Console.Write("\nEnter the roll number of the student : ");
             studentNo = Convert.ToInt32(Console.ReadLine());
             Console.Write("\nEnter the name of the student : ");
             studentName = Console.ReadLine();
+            // Add new object named newNode
             Node newNode = new Node();
+            // Create node list saver
             newNode.rollNumber = studentNo;
             newNode.name = studentName;
+            // Create condition if the list is empty
             if (listEmpty())
             {
                 newNode.next = newNode;
                 LAST = newNode;
             }
+            // Add new node from the left of the list
             else if (studentNo < LAST.next.rollNumber)
             {
                 newNode.next = LAST.next;
                 LAST.next = newNode;
             }
+            // Add new node from the right of the list
             else if (studentNo > LAST.next.rollNumber)
             {
                 newNode.next = LAST.next;
                 LAST.next = newNode;
                 LAST = newNode;
             }
+            // Add new node in the middle of the list
             else
             {
                 Node curr, prev;
@@ -61,10 +69,13 @@ namespace Exercise_Linked_List_A
                 prev.next = newNode;
             }
         }
+        // Delete recorded node
         public bool deleteNode(int rollNumber)
         {
+            // Create variable previous and current
             Node previous, current;
             previous = current = LAST.next;
+            // Check the specification of the node
             if (Search(rollNumber, ref previous, ref current) == false)
                 return false;
             previous.next = current.next;
@@ -146,19 +157,23 @@ namespace Exercise_Linked_List_A
                     {
                         case '1':
                             {
+                                // Add new node
                                 obj.InsertNode();
                             }
                             break;
                         case '2':
                             {
+                                // Check the record in the nodes list
                                 if (obj.listEmpty())
                                 {
                                     Console.WriteLine("\nList is empty");
                                     break;
                                 }
-                                Console.WriteLine("\nEnter the roll number of " + "the student whose record is to be deleted: ");
+                                // Searches the student whose record is to be delete
+                                Console.Write("\nEnter the roll number of " + "the student whose record is to be deleted: ");
                                 int studentNo = Convert.ToInt32(Console.ReadLine());
                                 Console.WriteLine();
+                                // deleteNode output
                                 if (obj.deleteNode(studentNo) == false)
                                     Console.WriteLine("\nRecord not found");
                                 else
