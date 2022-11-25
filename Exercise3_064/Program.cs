@@ -40,7 +40,20 @@ namespace Exercise_Linked_List_A
         }
         public void traverse() /*traverses all the nodes of the list*/
         {
-
+            if (listEmpty())
+                Console.WriteLine("\nList is empty");
+            else
+            {
+                Console.WriteLine("\nRecords in the list are:\n");
+                Node currentNode;
+                currentNode = LAST.next;
+                while (currentNode != LAST)
+                {
+                    Console.WriteLine(currentNode.rollNumber + "   " + currentNode.name + "\n");
+                    currentNode = currentNode.next;
+                }
+                Console.WriteLine(LAST.rollNumber + "   " + LAST.name + "\n");
+            }
         }
     }
 }
