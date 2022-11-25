@@ -14,6 +14,6 @@ namespace Exercise_Linked_List_A
     }
     class CircularList
     {
-        
+        Node LAST;
     }
 }
